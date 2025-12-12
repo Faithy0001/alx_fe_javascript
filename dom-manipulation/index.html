@@ -18,6 +18,34 @@
       color: #333;
     }
 
+    /* Notification styles */
+    .notification {
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+
+    .notification.info {
+      background-color: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+
+    .notification.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .notification.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
     #quoteDisplay {
       background-color: white;
       padding: 20px;
@@ -40,6 +68,14 @@
 
     button:hover {
       background-color: #0056b3;
+    }
+
+    .sync-button {
+      background-color: #28a745;
+    }
+
+    .sync-button:hover {
+      background-color: #218838;
     }
 
     .button-group {
@@ -85,6 +121,15 @@
       text-align: center;
     }
 
+    .sync-section {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
     select {
       padding: 10px;
       font-size: 16px;
@@ -103,10 +148,26 @@
       font-weight: bold;
       margin-right: 10px;
     }
+
+    .sync-info {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #666;
+    }
   </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
+
+  <!-- Notification area -->
+  <div id="notification" class="notification"></div>
+
+  <!-- Sync Section -->
+  <div class="sync-section">
+    <h2>Server Sync</h2>
+    <button class="sync-button" onclick="syncWithServer()">Sync with Server Now</button>
+    <p class="sync-info">Auto-sync enabled: Every 30 seconds</p>
+  </div>
 
   <!-- Category Filter Section -->
   <div class="filter-section">
