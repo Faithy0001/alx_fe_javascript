@@ -88,11 +88,8 @@ async function syncQuotes() {
   // Conflict resolution: Check for conflicts and merge
   const conflicts = resolveConflicts(serverQuotes);
   
-  if (conflicts.added > 0) {
-    showNotification(`Synced successfully! Added ${conflicts.added} new quotes from server.`, 'success');
-  } else {
-    showNotification('Already up to date with server.', 'info');
-  }
+  // Show notification that quotes synced with server
+  showNotification('Quotes synced with server!', 'success');
   
   // Update last sync time
   lastSyncTime = new Date().toISOString();
